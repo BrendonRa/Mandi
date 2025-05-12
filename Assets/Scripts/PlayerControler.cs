@@ -8,17 +8,20 @@ public class PlayerControler : MonoBehaviour
     public Rigidbody rb;
     public Animator anim;
     public float moveSpeed = 5.0f;
-    public Vector3 movement;
     //private Camera _mainCamera;
     private SpriteRenderer sprite;
     void Update()
     {
         float xAxis = Input.GetAxisRaw("Horizontal");
         float zAxis = Input.GetAxisRaw("Vertical");
+
+        transform.Translate(Vector3.forward * Time.deltaTime * zAxis * moveSpeed);
+        /*
         movement = new Vector3(xAxis,0,zAxis) * moveSpeed * Time.deltaTime;
         rb.MovePosition(transform.position + movement);
+        */
 
-        if(movement.x !=0 || movement.z !=0){
+        if(zAxis != 0){
                 anim.SetBool("isWalking", true);
         }else{
                 anim.SetBool("isWalking", false);

@@ -4,10 +4,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerFollow : MonoBehaviour
 {
     public Transform objectToFollow;
-    public float followSpeed = 1;
+    public float followSpeed = 5.0f;
 
     // Start is called before the first frame update
     void Start()

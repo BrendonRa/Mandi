@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
-  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -241,22 +240,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &330585548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14a1b27fa88be3d478bfd8f4deb9c235, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  smoothSpeed: 0.125
-  locationOffset: {x: 3, y: 1, z: 0}
-  rotationOffset: {x: 0, y: -90, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 965554295}
   - component: {fileID: 965554296}
+  - component: {fileID: 965554297}
   m_Layer: 0
   m_Name: PointCamera
   m_TagString: Untagged
@@ -466,7 +450,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27478465ed98784598f05beb00d3208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 500
+  objectToFollow: {fileID: 1367450811}
+--- !u!114 &965554297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965554293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405ca7df03cad5b40ab5b41c4dc1342c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 150
 --- !u!1 &1255858211
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,8 +507,9 @@ GameObject:
   - component: {fileID: 1367450810}
   - component: {fileID: 1367450809}
   - component: {fileID: 1367450813}
-  - component: {fileID: 1367450812}
   - component: {fileID: 1367450814}
+  - component: {fileID: 1367450815}
+  - component: {fileID: 1367450816}
   m_Layer: 0
   m_Name: Mandi
   m_TagString: Untagged
@@ -599,7 +597,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367450808}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
@@ -607,19 +605,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!65 &1367450812
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367450808}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10.240003, y: 10.24, z: 0.20000005}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1367450813
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -651,7 +636,32 @@ MonoBehaviour:
   rb: {fileID: 1367450813}
   anim: {fileID: 1367450809}
   moveSpeed: 5
-  movement: {x: 0, y: 0, z: 0}
+--- !u!114 &1367450815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367450808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405ca7df03cad5b40ab5b41c4dc1342c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 150
+--- !u!65 &1367450816
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367450808}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.076724, y: 9.352806, z: 0.20000005}
+  m_Center: {x: -0.013535021, y: 0.36596656, z: -1.5097555e-17}
 --- !u!1 &1645743173
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +752,7 @@ GameObject:
   - component: {fileID: 2122208649}
   - component: {fileID: 2122208648}
   - component: {fileID: 2122208647}
+  - component: {fileID: 2122208651}
   m_Layer: 0
   m_Name: TreeGreen
   m_TagString: Untagged
@@ -773,10 +784,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 48
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!212 &2122208649
 SpriteRenderer:
@@ -845,3 +856,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &2122208651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122208645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405ca7df03cad5b40ab5b41c4dc1342c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 150
