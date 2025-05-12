@@ -14,9 +14,7 @@ public class RotationObjects : MonoBehaviour
     // Update is called once per frame
     private void LateUpdate()
     {
-        if (Input.GetKey(KeyCode.Mouse0)) {
-            CamOrbit();
-        }
+        CamOrbit();
     }
     private void CamOrbit() {
         if (Input.GetAxis("Mouse Y") != 0 || Input.GetAxis("Mouse X") != 0) {
