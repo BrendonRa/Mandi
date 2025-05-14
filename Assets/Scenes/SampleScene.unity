@@ -414,7 +414,6 @@ GameObject:
   m_Component:
   - component: {fileID: 965554295}
   - component: {fileID: 965554296}
-  - component: {fileID: 965554297}
   m_Layer: 0
   m_Name: PointCamera
   m_TagString: Untagged
@@ -451,19 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToFollow: {fileID: 1367450811}
---- !u!114 &965554297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965554293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 405ca7df03cad5b40ab5b41c4dc1342c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 250
+  rotationSpeed: 150
 --- !u!1 &1255858211
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,8 +511,8 @@ GameObject:
   - component: {fileID: 1367450809}
   - component: {fileID: 1367450813}
   - component: {fileID: 1367450814}
-  - component: {fileID: 1367450815}
   - component: {fileID: 1367450816}
+  - component: {fileID: 1367450817}
   m_Layer: 0
   m_Name: Mandi
   m_TagString: Untagged
@@ -652,19 +639,6 @@ MonoBehaviour:
   rb: {fileID: 1367450813}
   anim: {fileID: 1367450809}
   moveSpeed: 5
---- !u!114 &1367450815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367450808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 405ca7df03cad5b40ab5b41c4dc1342c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 250
 --- !u!65 &1367450816
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -676,8 +650,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.076724, y: 9.352806, z: 0.20000005}
-  m_Center: {x: -0.013535021, y: 0.36596656, z: -1.5097555e-17}
+  m_Size: {x: 6.076724, y: 9.352806, z: 1.0734398}
+  m_Center: {x: -0.013535022, y: 0.36596626, z: 0.4367197}
+--- !u!114 &1367450817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367450808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405ca7df03cad5b40ab5b41c4dc1342c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationObject: {fileID: 965554295}
 --- !u!1 &1645743173
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,4 +871,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 405ca7df03cad5b40ab5b41c4dc1342c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 250
+  rotationObject: {fileID: 965554295}
