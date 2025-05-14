@@ -13,7 +13,7 @@ public class RotationObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var rota = rotationObject.rotation;
-        transform.rotation = rota;
+        var rota = rotationObject.rotation.y;
+        transform.rotation = Quaternion.Euler(0f, rotationObject.rotation.y, 0f);
     }
 }

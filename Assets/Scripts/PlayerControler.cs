@@ -15,11 +15,9 @@ public class PlayerControler : MonoBehaviour
         float xAxis = Input.GetAxisRaw("Horizontal");
         float zAxis = Input.GetAxisRaw("Vertical");
 
-        transform.Translate(Vector3.forward * Time.deltaTime * zAxis * moveSpeed);
-        /*
-        movement = new Vector3(xAxis,0,zAxis) * moveSpeed * Time.deltaTime;
-        rb.MovePosition(transform.position + movement);
-        */
+        //transform.Translate(Vector3.forward * Time.deltaTime * zAxis * moveSpeed);
+        
+        rb.MovePosition(transform.position + new Vector3(xAxis,0,zAxis) * moveSpeed * Time.deltaTime);
 
         if(zAxis != 0){
                 anim.SetBool("isWalking", true);
