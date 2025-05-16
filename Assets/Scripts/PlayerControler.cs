@@ -10,14 +10,15 @@ public class PlayerControler : MonoBehaviour
     public float moveSpeed = 5.0f;
     //private Camera _mainCamera;
     private SpriteRenderer sprite;
+    public Transform moviment;
     void Update()
     {
         float xAxis = Input.GetAxisRaw("Horizontal");
         float zAxis = Input.GetAxisRaw("Vertical");
 
-        //transform.Translate(Vector3.forward * Time.deltaTime * zAxis * moveSpeed);
-        
-        rb.MovePosition(transform.position + new Vector3(xAxis,0,zAxis) * moveSpeed * Time.deltaTime);
+        moviment.transform.Translate(Vector3.forward * Time.deltaTime * zAxis * moveSpeed);
+        // rb.MovePosition(transform.position + new Vector3(xAxis,0,zAxis) * moveSpeed * Time.deltaTime);
+        // rb.MoveRotation(Quaternion.Euler(0f, transform.rotation.y + xAxis * moveSpeed * Time.deltaTime, 0f));
 
         if(zAxis != 0){
                 anim.SetBool("isWalking", true);
