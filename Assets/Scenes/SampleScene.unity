@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 1367450813}
   - component: {fileID: 1367450814}
   - component: {fileID: 1367450816}
+  - component: {fileID: 1367450817}
   m_Layer: 0
   m_Name: Mandi
   m_TagString: Untagged
@@ -655,7 +656,7 @@ MonoBehaviour:
   rb: {fileID: 1367450813}
   anim: {fileID: 1367450809}
   moveSpeed: 5
-  moviment: {fileID: 0}
+  moviment: {fileID: 1367450811}
 --- !u!65 &1367450816
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -669,6 +670,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.076724, y: 9.352806, z: 1.0734398}
   m_Center: {x: -0.013535022, y: 0.36596626, z: 0.4367197}
+--- !u!111 &1367450817
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367450808}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 6b8771dbfa94171488b2bd6893d4cde9, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1645743173
 GameObject:
   m_ObjectHideFlags: 0
