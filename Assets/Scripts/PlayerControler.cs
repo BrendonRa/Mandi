@@ -16,7 +16,7 @@ public class PlayerControler : MonoBehaviour
         float xAxis = Input.GetAxisRaw("Horizontal");
         float zAxis = Input.GetAxisRaw("Vertical");
 
-        moviment.transform.Translate(Vector3.forward * Time.deltaTime * zAxis * moveSpeed);
+        moviment.Translate(Vector3.forward * Time.deltaTime * zAxis * moveSpeed);
         // rb.MovePosition(transform.position + new Vector3(xAxis,0,zAxis) * moveSpeed * Time.deltaTime);
         // rb.MoveRotation(Quaternion.Euler(0f, transform.rotation.y + xAxis * moveSpeed * Time.deltaTime, 0f));
 
