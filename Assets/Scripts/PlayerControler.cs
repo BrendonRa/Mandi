@@ -15,15 +15,15 @@ public class PlayerControler : MonoBehaviour
         float zAxis = Input.GetAxisRaw("Vertical");
 
         //moviment.Translate(Vector3.forward * Time.deltaTime * zAxis * moveSpeed);
-        // rb.MovePosition(transform.position + transform.forward * (zAxis * moveSpeed * Time.deltaTime));
-        // rb.MovePosition(transform.position + transform.right * (xAxis * moveSpeed * Time.deltaTime));
+        rb.MovePosition(transform.position + transform.forward * (zAxis * moveSpeed * Time.deltaTime));
+        rb.MovePosition(transform.position + transform.right * (xAxis * moveSpeed * Time.deltaTime));
         // rb.MoveRotation(Quaternion.Euler(0f, transform.rotation.y + xAxis * moveSpeed * Time.deltaTime, 0f));
 
         // Mover para frente/trás
         transform.Translate(Vector3.forward * zAxis * moveSpeed * Time.deltaTime);
 
         // Rotacionar para esquerda/direita
-        transform.Rotate(Vector3.up * xAxis * rotationSpeed * Time.deltaTime);
+        //transform.Rotate(Vector3.up * xAxis * rotationSpeed * Time.deltaTime);
 
         anim.SetFloat("input_x", zAxis);
         anim.SetFloat("input_z", xAxis);

@@ -7,6 +7,7 @@ using UnityEngine.Animations;
 public class PlayerFollow : MonoBehaviour
 {
     public Transform objectToFollow;
+    private Animator anim;
     public float followSpeed = 5.0f;
 
     // Start is called before the first frame update
@@ -15,7 +16,7 @@ public class PlayerFollow : MonoBehaviour
     }
 
     // Update is called once per frame
-    
+
 
     void Update()
     {
@@ -24,5 +25,12 @@ public class PlayerFollow : MonoBehaviour
 
         var delta = objectToFollow.position - transform.position;
         transform.position += delta * Time.deltaTime * followSpeed;
+
+        /*if (delta != 0)
+        {
+            anim.SetBool("isWalking", true);
+        } else {
+            anim.SetBool("isWalking", false);
+        }*/
     }
 }
