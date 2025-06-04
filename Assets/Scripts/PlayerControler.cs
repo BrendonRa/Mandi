@@ -5,25 +5,32 @@ using UnityEngine;
 public class PlayerControler : MonoBehaviour
 {
     [SerializeField]
-    public Rigidbody rb;
-    public Animator anim;
+    private Rigidbody rb;
+    [SerializeField]
+    private Animator anim;
     public float moveSpeed = 5.0f;
     public float rotationSpeed = 100f;
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
+    }
     void Update()
     {
-        float xAxis = Input.GetAxisRaw("Horizontal");
-        float zAxis = Input.GetAxisRaw("Vertical");
+        float xAxis = Input.GetAxis("Horizontal");
+        float zAxis = Input.GetAxis("Vertical");
 
-        //moviment.Translate(Vector3.forward * Time.deltaTime * zAxis * moveSpeed);
+        // moviment.Translate(Vector3.forward * Time.deltaTime * zAxis * moveSpeed);
         // rb.MovePosition(transform.position + transform.forward * (zAxis * moveSpeed * Time.deltaTime));
-        rb.MovePosition(transform.position + transform.right * (xAxis * moveSpeed * Time.deltaTime));
+        // rb.MovePosition(transform.position + transform.right * (xAxis * moveSpeed * Time.deltaTime));
         // rb.MoveRotation(Quaternion.Euler(0f, transform.rotation.y + xAxis * moveSpeed * Time.deltaTime, 0f));
 
         // Mover para frente/trás
         transform.Translate(Vector3.forward * zAxis * moveSpeed * Time.deltaTime);
+        transform.Translate(Vector3.right * xAxis * moveSpeed * Time.deltaTime);
 
         // Rotacionar para esquerda/direita
-        //transform.Rotate(Vector3.up * xAxis * rotationSpeed * Time.deltaTime);
+        // transform.Rotate(Vector3.up * xAxis * rotationSpeed * Time.deltaTime);
 
         anim.SetFloat("input_x", zAxis);
         anim.SetFloat("input_z", xAxis);
