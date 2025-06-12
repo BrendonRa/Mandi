@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 
 public class PlayerControler : MonoBehaviour
@@ -48,5 +49,13 @@ public class PlayerControler : MonoBehaviour
         {
             anim.SetTrigger("attack");
         }
+    }
+
+    void OllisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Mandi")
+        {
+            Input.GetButtonDown("E");
+        }    
     }
 }
