@@ -50,24 +50,26 @@ public class PlayerControler : MonoBehaviour
             anim.SetTrigger("attack");
         }
     }
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "NpcDialog")
+        if (other.gameObject.tag == "NpcDialog")
         {
-            PlayerPrefs.SetString("Dialogs", collision.gameObject.name);
+            PlayerPrefs.SetString("Dialogs", other.gameObject.name);
+            PlayerPrefs.Save();
             /*
-            if (Input.GetButtonDown("E"))
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                PlayerPrefs.SetString("Dialogs", collision.gameObject.name);
+                PlayerPrefs.SetString("Dialogs", other.gameObject.name);
+                PlayerPrefs.Save();
             }
             */
         }
     }
-    void OnCollisionExit(Collision collision)
+    void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.tag == "NpcDialog")
+        if (other.gameObject.tag == "NpcDialog")
         {
             PlayerPrefs.DeleteKey("Dialogs");
-        }    
+        }   
     }
 }

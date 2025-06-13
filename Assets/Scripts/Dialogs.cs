@@ -18,14 +18,10 @@ public class Dialogs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerPrefs.HasKey("Dialogs"))
+        string dia = PlayerPrefs.GetString("Dialogs", "");
+        if (dia == "CaciqueDialog")
         {
-            switch (PlayerPrefs.GetString("Dialogs", ""))
-            {
-                case "CaciqueDialog":
-                    canvas.targetDisplay = 0;
-                    break;
-            }
+            canvas.targetDisplay = 0;
         }
         else
         {
