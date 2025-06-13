@@ -50,12 +50,24 @@ public class PlayerControler : MonoBehaviour
             anim.SetTrigger("attack");
         }
     }
-
-    void OllisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Mandi")
+        if (collision.gameObject.tag == "NpcDialog")
         {
-            Input.GetButtonDown("E");
+            PlayerPrefs.SetString("Dialogs", collision.gameObject.name);
+            /*
+            if (Input.GetButtonDown("E"))
+            {
+                PlayerPrefs.SetString("Dialogs", collision.gameObject.name);
+            }
+            */
+        }
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "NpcDialog")
+        {
+            PlayerPrefs.DeleteKey("Dialogs");
         }    
     }
 }
