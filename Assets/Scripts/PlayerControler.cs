@@ -62,6 +62,7 @@ public class PlayerControler : MonoBehaviour
         {
             PlayerPrefs.DeleteKey("Dialogs");
         }
+        Debug.Log("colisindeo");
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -75,5 +76,6 @@ public class PlayerControler : MonoBehaviour
         {
             PlayerPrefs.DeleteKey("Dialogs");
         }
+        Debug.Log("coliso");
     }
 }
