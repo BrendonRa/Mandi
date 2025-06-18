@@ -19,7 +19,7 @@ public class Dialogs : MonoBehaviour
     void Update()
     {
         string dialo = PlayerPrefs.GetString("Dialogs", "");
-        if (dialo == "CaciqueDialog")
+        if (dialo == "Cacique")
         {
             canvas.targetDisplay = 0;
         }

@@ -54,12 +54,13 @@ public class PlayerControler : MonoBehaviour
     {
         if (other.gameObject.tag == "NpcDialog")
         {
+            Debug.Log("foi");
             PlayerPrefs.SetString("Dialogs", other.gameObject.name);
             PlayerPrefs.Save();
-            Debug.Log("Collidiu");
         }
-        if (PlayerPrefs.GetString("Dialogs", "") != "" && Input.GetKey("e"))
+        if (other.gameObject.tag == "NpcDialog" && Input.GetKey("q"))
         {
+            Debug.Log("saiu");
             PlayerPrefs.DeleteKey("Dialogs");
         }
     }
