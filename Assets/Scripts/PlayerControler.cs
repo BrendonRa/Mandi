@@ -62,20 +62,5 @@ public class PlayerControler : MonoBehaviour
         {
             PlayerPrefs.DeleteKey("Dialogs");
         }
-        Debug.Log("colisindeo");
-    }
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "NpcDialog")
-        {
-            PlayerPrefs.SetString("Dialogs", collision.gameObject.name);
-            PlayerPrefs.Save();
-            Debug.Log("Collidiu");
-        }
-        if (PlayerPrefs.GetString("Dialogs", "") != "" && Input.GetKey("e"))
-        {
-            PlayerPrefs.DeleteKey("Dialogs");
-        }
-        Debug.Log("coliso");
     }
 }
