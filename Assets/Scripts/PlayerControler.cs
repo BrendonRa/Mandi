@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerControler : MonoBehaviour
@@ -38,10 +41,10 @@ public class PlayerControler : MonoBehaviour
 
         if (zAxis != 0 || xAxis != 0)
         {
+            if (!(Mathf.Round(zAxis) == 0)) anim.SetFloat("xDir", Mathf.Round(zAxis));
+            if (!(Mathf.Round(xAxis) == 0)) anim.SetFloat("zDir", Mathf.Round(xAxis));
             anim.SetBool("isWalking", true);
-        }
-        else
-        {
+        } else {
             anim.SetBool("isWalking", false);
         }
 
