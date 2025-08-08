@@ -1,41 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data.Common;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerControler : MonoBehaviour
 {
     [SerializeField]
-    private Rigidbody rb;
-    [SerializeField]
     private Animator anim;
     public float moveSpeed = 5.0f;
     public float rotationSpeed = 100f;
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
-    }
-    void Update()
+    [SerializeField]
+    private Dialogs dialog;
+    private bool InDialog = false;
+    void FixedUpdate()
     {
         float xAxis = Input.GetAxis("Horizontal");
         float zAxis = Input.GetAxis("Vertical");
 
-        // moviment.Translate(Vector3.forward * Time.deltaTime * zAxis * moveSpeed);
-        // rb.MovePosition(transform.position + transform.forward * (zAxis * moveSpeed * Time.deltaTime));
-        // rb.MovePosition(transform.position + transform.right * (xAxis * moveSpeed * Time.deltaTime));
-        // rb.MoveRotation(Quaternion.Euler(0f, transform.rotation.y + xAxis * moveSpeed * Time.deltaTime, 0f));
-
         // Mover para frente/trás
-        transform.Translate(Vector3.forward * zAxis * moveSpeed * Time.deltaTime);
-        transform.Translate(Vector3.right * xAxis * moveSpeed * Time.deltaTime);
-
-        // Rotacionar para esquerda/direita
-        // transform.Rotate(Vector3.up * xAxis * rotationSpeed * Time.deltaTime);
-
+        if (!InDialog)
+        {
+            transform.Translate(Vector3.forward * zAxis * moveSpeed * Time.deltaTime);
+            transform.Translate(Vector3.right * xAxis * moveSpeed * Time.deltaTime);
+        }
+        
+        // Mudança de Animações
         anim.SetFloat("input_x", zAxis);
         anim.SetFloat("input_z", xAxis);
 
@@ -53,18 +39,17 @@ public class PlayerControler : MonoBehaviour
             anim.SetTrigger("attack");
         }
     }
-    void OnCollisionStay(Collision other)
+    void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "NpcDialog")
+        if (other.gameObject.tag == "NpcDialog" && Input.GetKeyDown("e"))
         {
-            Debug.Log("foi");
-            PlayerPrefs.SetString("Dialogs", other.gameObject.name);
-            PlayerPrefs.Save();
+            dialog.Dialog(other.gameObject.name);
+            InDialog = true;
         }
-        if (other.gameObject.tag == "NpcDialog" && Input.GetKey("q"))
+        if (other.gameObject.tag == "NpcDialog" && Input.GetKeyDown("q"))
         {
-            Debug.Log("saiu");
-            PlayerPrefs.DeleteKey("Dialogs");
+            dialog.Dialog(default);
+            InDialog = false;
         }
     }
 }
