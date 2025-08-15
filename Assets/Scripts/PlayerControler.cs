@@ -3,36 +3,42 @@ using UnityEngine;
 public class PlayerControler : MonoBehaviour
 {
     [SerializeField]
+    private Dialogs dialog;
+    private bool inDialog = false;
+    
+    [SerializeField]
     private Animator anim;
     public float moveSpeed = 5.0f;
     public float rotationSpeed = 100f;
-    [SerializeField]
-    private Dialogs dialog;
-    private bool InDialog = false;
-    void FixedUpdate()
+    bool isWalking;
+    float xAxis = 0;
+    float zAxis = 0;
+    void Start()
     {
-        float xAxis = Input.GetAxis("Horizontal");
-        float zAxis = Input.GetAxis("Vertical");
+        isWalking = false;
+    }
+    void Update()
+    {
+        xAxis = Input.GetAxisRaw("Horizontal");
+        zAxis = Input.GetAxisRaw("Vertical");
 
-        // Mover para frente/trás
-        if (!InDialog)
-        {
-            transform.Translate(Vector3.forward * zAxis * moveSpeed * Time.deltaTime);
-            transform.Translate(Vector3.right * xAxis * moveSpeed * Time.deltaTime);
-        }
-        
-        // Mudança de Animações
-        anim.SetFloat("input_x", zAxis);
-        anim.SetFloat("input_z", xAxis);
+        isWalking = (xAxis != 0 || zAxis != 0);
 
-        if (zAxis != 0 || xAxis != 0)
+        if (isWalking)
         {
-            if (!(Mathf.Round(zAxis) == 0)) anim.SetFloat("xDir", Mathf.Round(zAxis));
-            if (!(Mathf.Round(xAxis) == 0)) anim.SetFloat("zDir", Mathf.Round(xAxis));
-            anim.SetBool("isWalking", true);
-        } else {
-            anim.SetBool("isWalking", false);
+            // Mover para frente/trás
+            if (!inDialog)
+            {
+                transform.Translate(Vector3.forward * zAxis * moveSpeed * Time.deltaTime);
+                transform.Translate(Vector3.right * xAxis * moveSpeed * Time.deltaTime);
+            }
+
+            // Mudança de Animações
+            anim.SetFloat("input_z", xAxis);
+            anim.SetFloat("input_x", zAxis);
         }
+
+        anim.SetBool("isWalking", isWalking);
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -41,15 +47,15 @@ public class PlayerControler : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "NpcDialog" && Input.GetKeyDown("e"))
+        if (other.gameObject.tag == "NpcDialog")
         {
-            dialog.Dialog(other.gameObject.name);
-            InDialog = true;
-        }
-        if (other.gameObject.tag == "NpcDialog" && Input.GetKeyDown("q"))
-        {
-            dialog.Dialog(default);
-            InDialog = false;
+            if (Input.GetKeyDown("e"))
+            {
+                dialog.Dialog(other.gameObject.name);
+                inDialog = true;
+            }
+            
+            if (Input.GetButtonDown("Fire1")) inDialog = dialog.NextDialog();
         }
     }
 }

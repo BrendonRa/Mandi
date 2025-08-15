@@ -1,12 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
 using TMPro;
-using UnityEditor.Search;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class Dialogs : MonoBehaviour
 {
@@ -15,6 +9,7 @@ public class Dialogs : MonoBehaviour
     public TextMeshProUGUI textNpc;
     public DialogueData dialogueData;
     private int correntText = 0;
+    string mainNpc;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,26 +18,43 @@ public class Dialogs : MonoBehaviour
 
     public void Dialog(string npc)
     {
-        if (correntText < dialogueData.talkScript.Count && Input.GetKeyDown("g")) correntText++; 
+        mainNpc = npc;
+        switch (mainNpc)
+        {
+            case "Cacique":
+                textNpc.text = Convert.ToString(dialogueData.talkScript[correntText].text);
+                canvas.targetDisplay = 0;
+                break;
 
-        if (npc == "Cacique")
-        {
-            textNpc.text = Convert.ToString(dialogueData.talkScript[correntText].text);
-            canvas.targetDisplay = 0;
+            case "Velho":
+                break;
         }
-        else if (npc == "Velho")
+    }
+
+    public bool NextDialog()
+    {
+        Debug.Log(dialogueData.talkScript.Count);
+        switch (mainNpc)
         {
-            textNpc.text = "Olá eu sou o Velho";
-            canvas.targetDisplay = 0;
+            case "Cacique":
+                textNpc.text = Convert.ToString(dialogueData.talkScript[correntText].text);
+                break;
+
+            case "Velho":
+                break;
         }
-        if (npc == default)
-        {
-            canvas.targetDisplay = 1;
-        }
+
         if (correntText < dialogueData.talkScript.Count)
         {
-            Dialog(npc);
+            correntText++;
+            canvas.targetDisplay = 0;
+            return false;
         }
-        else correntText = 0;
+        else
+        {
+            correntText = 0;
+            canvas.targetDisplay = 1;
+            return true;
+        }
     }
 }
