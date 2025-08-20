@@ -10,8 +10,9 @@ public struct Dialogue
     [TextArea(5, 10)]
     public string text;
 }
-[CreateAssetMenu(fileName = "DialogueData", menuName = "ScriptableObject/TalkScript", order = 1)]
+[CreateAssetMenu(fileName = "DialogueData", menuName = "ScriptableObject/TalkScript", order = 0)]
 public class DialogueData : ScriptableObject
 {
-    public List<Dialogue> talkScript;
+    public List<Dialogue> velho;
+    public List<Dialogue> cacique;
 }

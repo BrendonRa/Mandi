@@ -55,7 +55,7 @@ public class PlayerControler : MonoBehaviour
                 inDialog = true;
             }
             
-            if (Input.GetButtonDown("Fire1")) inDialog = dialog.NextDialog();
+            if (Input.GetButtonDown("Fire1") && inDialog) inDialog = dialog.NextDialog();
         }
     }
 }

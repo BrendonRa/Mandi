@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c1cae1d245f924aaf13704bd2d2444, type: 3}
   m_Name: DialogueVelho
   m_EditorClassIdentifier: 
-  talkScript:
-  - name: Potyra
-    text: "Ol\xE1 meu nome \xE9 Potyra, como vai ?"
-  - name: Velhao
-    text: "Ol\xE1 Potyra vou bem, e voc\xEA garotinha ?"
-  - name: Potyra
-    text: "Vou bem, at\xE9 mais"
+  velho:
+  - name: fafasf
+    text: farfaefasf
+  - name: fafasf
+    text: farfaefasf
+  - name: fafasf
+    text: farfaefasf
+  cacique:
+  - name: afafsafas
+    text: asrfasfafasfas
+  - name: afafsafas
+    text: asrfasfafasfas
+  - name: afafsafas
+    text: asrfasfafasfas

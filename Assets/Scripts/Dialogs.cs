@@ -22,39 +22,41 @@ public class Dialogs : MonoBehaviour
         switch (mainNpc)
         {
             case "Cacique":
-                textNpc.text = Convert.ToString(dialogueData.talkScript[correntText].text);
-                canvas.targetDisplay = 0;
+                textNpc.text = Convert.ToString(dialogueData.cacique[correntText].text);
                 break;
 
             case "Velho":
+                textNpc.text = Convert.ToString(dialogueData.velho[correntText].text);
                 break;
         }
+        canvas.targetDisplay = 0;
+        correntText++;
     }
 
     public bool NextDialog()
     {
-        Debug.Log(dialogueData.talkScript.Count);
+        Debug.Log(correntText);
+        string dialo;
         switch (mainNpc)
         {
             case "Cacique":
-                textNpc.text = Convert.ToString(dialogueData.talkScript[correntText].text);
+                textNpc.text = Convert.ToString(dialogueData.cacique[correntText].text);
                 break;
 
             case "Velho":
+                textNpc.text = Convert.ToString(dialogueData.velho[correntText].text);
                 break;
         }
-
-        if (correntText < dialogueData.talkScript.Count)
+        
+        if (correntText < dialogueData.velho.Count)
         {
             correntText++;
             canvas.targetDisplay = 0;
-            return false;
-        }
-        else
-        {
+            return true;
+        } else {
             correntText = 0;
             canvas.targetDisplay = 1;
-            return true;
+            return false;
         }
     }
 }
