@@ -13,16 +13,22 @@ MonoBehaviour:
   m_Name: DialogueVelho
   m_EditorClassIdentifier: 
   velho:
-  - name: fafasf
-    text: farfaefasf
-  - name: fafasf
-    text: farfaefasf
-  - name: fafasf
-    text: farfaefasf
+  - name: Velho
+    text: "O amor \xE9 o carinho, \xE9 o espinho que n\xE3o se v\xEA em cada flor,
+      \xE9 a vida quando chega sangrando aberta em p\xE9talas de amor"
   cacique:
-  - name: afafsafas
-    text: asrfasfafasfas
-  - name: afafsafas
-    text: asrfasfafasfas
-  - name: afafsafas
-    text: asrfasfafasfas
+  - name: Cacique
+    text: "Eu n\xE3o queria colocar voc\xEA para enfrentar tudo isso"
+  - name: Cacique
+    text: Mas todos os outros que tentaram fazer isso infelizmente faleceram ou se
+      feriram gravemente
+  - name: Cacique
+    text: "At\xE9 mesmo eu fui atacado por um homem estranho nas redondezas"
+  - name: Cacique
+    text: "Voc\xEA \xE9 a nossa \xFAltima esperan\xE7a, por isso, pegue isso"
+  aquyma:
+  - name: Aquyma
+    text: "\xD3 c\xE9us, o que aconteceu?"
+  - name: Aquyma
+    text: "Eu apenas me recordo de um homem estranho com vestimentas t\xE3o estranhas
+      quanto vir aqui e atirar algo em mim com um objeto esquisito."

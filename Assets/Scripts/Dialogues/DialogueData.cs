@@ -15,4 +15,5 @@ public class DialogueData : ScriptableObject
 {
     public List<Dialogue> velho;
     public List<Dialogue> cacique;
+    public List<Dialogue> aquyma;
 }

@@ -9,6 +9,8 @@ public class Dialogs : MonoBehaviour
     public TextMeshProUGUI textNpc;
     public DialogueData dialogueData;
     private int correntText = 0;
+    string mainNpcText;
+    int dialoCount;
     string mainNpc;
     // Start is called before the first frame update
     void Start()
@@ -19,39 +21,28 @@ public class Dialogs : MonoBehaviour
     public void Dialog(string npc)
     {
         mainNpc = npc;
-        switch (mainNpc)
+        switch (npc)
         {
             case "Cacique":
-                textNpc.text = Convert.ToString(dialogueData.cacique[correntText].text);
+                dialoCount = dialogueData.cacique.Count;
+                mainNpcText = Convert.ToString(dialogueData.cacique[correntText].text);
                 break;
 
             case "Velho":
-                textNpc.text = Convert.ToString(dialogueData.velho[correntText].text);
+                dialoCount = dialogueData.velho.Count;
+                mainNpcText = Convert.ToString(dialogueData.velho[correntText].text);
                 break;
         }
+        textNpc.text = mainNpcText;
         canvas.targetDisplay = 0;
         correntText++;
     }
 
     public bool NextDialog()
-    {
-        Debug.Log(correntText);
-        string dialo;
-        switch (mainNpc)
+    {   
+        if (correntText < dialoCount)
         {
-            case "Cacique":
-                textNpc.text = Convert.ToString(dialogueData.cacique[correntText].text);
-                break;
-
-            case "Velho":
-                textNpc.text = Convert.ToString(dialogueData.velho[correntText].text);
-                break;
-        }
-        
-        if (correntText < dialogueData.velho.Count)
-        {
-            correntText++;
-            canvas.targetDisplay = 0;
+            Dialog(mainNpc);
             return true;
         } else {
             correntText = 0;
