@@ -13,6 +13,9 @@ public class PlayerControler : MonoBehaviour
     bool isWalking;
     float xAxis = 0;
     float zAxis = 0;
+    public GameObject attackObj;
+    public Transform att;
+    private SpriteRenderer sprite;
     void Start()
     {
         isWalking = false;
@@ -23,6 +26,8 @@ public class PlayerControler : MonoBehaviour
         zAxis = Input.GetAxisRaw("Vertical");
 
         isWalking = (xAxis != 0 || zAxis != 0);
+
+       
 
         if (isWalking)
         {
@@ -43,6 +48,31 @@ public class PlayerControler : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             anim.SetTrigger("attack");
+
+            if (anim.GetFloat("input_z") > 0)
+            {
+                att.position += new Vector3(0, 0, 5.2f);
+                GameObject ataque = Instantiate(attackObj, att.position, Quaternion.identity);
+                Destroy(ataque, 2f);
+            }
+            if (anim.GetFloat("input_z") < 0)
+            {
+                att.position += new Vector3(0, 0, -5.2f);
+                GameObject ataque = Instantiate(attackObj, att.position, Quaternion.identity);
+                Destroy(ataque, 2f);
+            }
+            if (anim.GetFloat("input_x") > 0)
+            {
+                att.position += new Vector3(5.2f, 0, 0);
+                GameObject ataque = Instantiate(attackObj, att.position, Quaternion.identity);
+                Destroy(ataque, 2f);
+            }
+            if (anim.GetFloat("input_x") < 0)
+            {
+                att.position += new Vector3(-5.2f, 0, 0);
+                GameObject ataque = Instantiate(attackObj, att.position, Quaternion.identity);
+                Destroy(ataque, 2f);
+            }
         }
     }
     void OnTriggerStay(Collider other)
