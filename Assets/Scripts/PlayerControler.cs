@@ -49,27 +49,29 @@ public class PlayerControler : MonoBehaviour
         {
             anim.SetTrigger("attack");
 
+            att.position = transform.position;
+
             if (anim.GetFloat("input_z") > 0)
             {
-                att.position += new Vector3(0, 0, 5.2f);
+                att.position += new Vector3(0, 0, 0.7f);
                 GameObject ataque = Instantiate(attackObj, att.position, Quaternion.identity);
                 Destroy(ataque, 2f);
             }
             if (anim.GetFloat("input_z") < 0)
             {
-                att.position += new Vector3(0, 0, -5.2f);
-                GameObject ataque = Instantiate(attackObj, att.position, Quaternion.identity);
-                Destroy(ataque, 2f);
-            }
-            if (anim.GetFloat("input_x") > 0)
-            {
-                att.position += new Vector3(5.2f, 0, 0);
+                att.position += new Vector3(0, 0, -0.7f);
                 GameObject ataque = Instantiate(attackObj, att.position, Quaternion.identity);
                 Destroy(ataque, 2f);
             }
             if (anim.GetFloat("input_x") < 0)
             {
-                att.position += new Vector3(-5.2f, 0, 0);
+                att.position += new Vector3(0.55f, 0, 0);
+                GameObject ataque = Instantiate(attackObj, att.position, Quaternion.identity);
+                Destroy(ataque, 2f);
+            }
+            if (anim.GetFloat("input_x") > 0)
+            {
+                att.position += new Vector3(-0.55f, 0, 0);
                 GameObject ataque = Instantiate(attackObj, att.position, Quaternion.identity);
                 Destroy(ataque, 2f);
             }
