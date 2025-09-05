@@ -45,36 +45,19 @@ public class PlayerControler : MonoBehaviour
 
         anim.SetBool("isWalking", isWalking);
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !inDialog)
         {
             anim.SetTrigger("attack");
 
             att.position = transform.position;
 
-            if (anim.GetFloat("input_z") > 0)
-            {
-                att.position += new Vector3(0, 0, 0.7f);
-                GameObject ataque = Instantiate(attackObj, att.position, Quaternion.identity);
-                Destroy(ataque, 2f);
-            }
-            if (anim.GetFloat("input_z") < 0)
-            {
-                att.position += new Vector3(0, 0, -0.7f);
-                GameObject ataque = Instantiate(attackObj, att.position, Quaternion.identity);
-                Destroy(ataque, 2f);
-            }
-            if (anim.GetFloat("input_x") < 0)
-            {
-                att.position += new Vector3(0.55f, 0, 0);
-                GameObject ataque = Instantiate(attackObj, att.position, Quaternion.identity);
-                Destroy(ataque, 2f);
-            }
-            if (anim.GetFloat("input_x") > 0)
-            {
-                att.position += new Vector3(-0.55f, 0, 0);
-                GameObject ataque = Instantiate(attackObj, att.position, Quaternion.identity);
-                Destroy(ataque, 2f);
-            }
+            if (anim.GetFloat("input_z") > 0) att.position += new Vector3(0, 0, 0.7f);
+            if (anim.GetFloat("input_z") < 0) att.position += new Vector3(0, 0, -0.7f);
+            if (anim.GetFloat("input_x") < 0) att.position += new Vector3(0.55f, 0, 0);
+            if (anim.GetFloat("input_x") > 0) att.position += new Vector3(-0.55f, 0, 0);
+
+            GameObject ataque = Instantiate(attackObj, att.position, Quaternion.identity);
+            Destroy(ataque, 0.5f);
         }
     }
     void OnTriggerStay(Collider other)
