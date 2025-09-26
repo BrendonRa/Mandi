@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;
-    public float smoothSpeed = 0.125f;
+   public Transform target;
+    public float smoothSpeed = 5f; // quanto maior, mais rápido acompanha
     public Vector3 locationOffset;
     public Vector3 rotationOffset;
 
-    void FixedUpdate()
+    void Update() // usar LateUpdate para seguir de forma suave
     {
-        Vector3 desiredPosition = target.position + target.rotation * locationOffset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-        transform.position = smoothedPosition;
+        if (target == null) return;
 
-        Quaternion desiredrotation = target.rotation * Quaternion.Euler(rotationOffset);
-        Quaternion smoothedrotation = Quaternion.Lerp(transform.rotation, desiredrotation, smoothSpeed);
-        transform.rotation = smoothedrotation;
+        // Posição desejada
+        Vector3 desiredPosition = target.position + target.rotation * locationOffset;
+        // Movimento suave usando deltaTime
+        transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
     }
 }
