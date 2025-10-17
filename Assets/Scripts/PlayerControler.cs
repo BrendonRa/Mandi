@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Video;
 
 public class PlayerControler : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class PlayerControler : MonoBehaviour
     public GameObject attackObj;
     public Transform att;
     private SpriteRenderer sprite;
+
+    public int healthMax = 200;
+    public int health = 200;
+    public int damage = 5;
     void Start()
     {
         isWalking = false;
@@ -26,8 +31,6 @@ public class PlayerControler : MonoBehaviour
         zAxis = Input.GetAxisRaw("Vertical");
 
         isWalking = (xAxis != 0 || zAxis != 0);
-
-       
 
         if (isWalking)
         {
