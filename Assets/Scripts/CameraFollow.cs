@@ -11,8 +11,6 @@ public class CameraFollow : MonoBehaviour
 
     void Update() // usar LateUpdate para seguir de forma suave
     {
-        if (target == null) return;
-
         // Posição desejada
         Vector3 desiredPosition = target.position + target.rotation * locationOffset;
         // Movimento suave usando deltaTime

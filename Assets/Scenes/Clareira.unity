@@ -9082,17 +9082,17 @@ PrefabInstance:
     - target: {fileID: 8801140097875817672, guid: aee085bde732b5245998e97d4183f5b8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 320.00003
+      value: 260
       objectReference: {fileID: 0}
     - target: {fileID: 8801140097875817672, guid: aee085bde732b5245998e97d4183f5b8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 320
+      value: 260
       objectReference: {fileID: 0}
     - target: {fileID: 8801140097875817672, guid: aee085bde732b5245998e97d4183f5b8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 270
+      value: 260
       objectReference: {fileID: 0}
     - target: {fileID: 8801140097875817672, guid: aee085bde732b5245998e97d4183f5b8,
         type: 3}
@@ -9102,12 +9102,12 @@ PrefabInstance:
     - target: {fileID: 8801140097875817672, guid: aee085bde732b5245998e97d4183f5b8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 89.04373
+      value: 89.64917
       objectReference: {fileID: 0}
     - target: {fileID: 8801140097875817672, guid: aee085bde732b5245998e97d4183f5b8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.6538315
+      value: -11.433453
       objectReference: {fileID: 0}
     - target: {fileID: 8801140097875817672, guid: aee085bde732b5245998e97d4183f5b8,
         type: 3}
@@ -14654,6 +14654,9 @@ MonoBehaviour:
   attackObj: {fileID: 433980532542762084, guid: 83e2892491531f6489871712db71394d,
     type: 3}
   att: {fileID: 1760544735}
+  healthMax: 200
+  health: 200
+  damage: 5
 --- !u!54 &1869843271
 Rigidbody:
   m_ObjectHideFlags: 0

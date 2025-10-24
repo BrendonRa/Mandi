@@ -13,7 +13,7 @@ public class Aquyma : MonoBehaviour
     {
         if (!(cooldown < 10)) Shoot();
 
-        if (cooldown < 11)
+        if (cooldown < 10)
         {
             cooldown += Time.deltaTime;
         }
@@ -22,11 +22,10 @@ public class Aquyma : MonoBehaviour
     void Shoot()
     {
         GameObject obj = Instantiate(projectile, transform.position, Quaternion.identity);
-        obj.tag = "projetil";
         Rigidbody rb = obj.GetComponent<Rigidbody>();
+        Transform trans = obj.GetComponent<Transform>();
 
-        Vector3 directionGlobal = transform.TransformPoint(target.position);
-
+        Vector3 directionGlobal = transform.TransformDirection(target.position);
         if (rb != null) rb.AddRelativeForce(directionGlobal * speedProjectile, ForceMode.Impulse);
     }
 }
