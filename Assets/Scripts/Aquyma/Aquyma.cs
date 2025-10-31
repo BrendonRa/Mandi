@@ -7,7 +7,7 @@ public class Aquyma : MonoBehaviour
     public GameObject projectile;
     float cooldown = 0;
     GameManager direction;
-    float speedProjectile = 5f;
+    float speedProjectile = 50f;
     // Update is called once per frame
     void Update()
     {
